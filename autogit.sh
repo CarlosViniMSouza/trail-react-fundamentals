@@ -1,4 +1,4 @@
 git add .
-git commit -m "Sidebar & Post modules css -> fixed"
+git commit -m "Next lesson -> Componente: Comment"
 git push -u origin main
 git status
