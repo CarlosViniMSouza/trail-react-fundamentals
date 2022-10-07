@@ -13,20 +13,21 @@ export function Post() {
                 </div>
 
                 <time title='03 October at 10:15h' dateTime='2022-10-03 10:15:20'> Posted 1h ago </time>
-
-                <div className={styles.content}>
-                    <p> Salve turma! ✌️ </p>
-                    <p> 👊 {' '} Projeto finalizado com sucesso! </p>
-                    <p>
-                        <a href=''> carlosvinimsouza.design/sdw </a> {' '}
-                    </p>
-                    <p>
-                        <a href=''> #nlw </a> {' '}
-                        <a href=''> #ignite </a> {' '}
-                        <a href=''> #reactjs </a> {' '}
-                    </p>
-                </div>
             </header>
+
+            <div className={styles.content}>
+                <p> Salve turma! ✌️ </p>
+                <p> 👊 Projeto finalizado com sucesso! </p>
+                <p>
+                    <a href=''> carlosvinimsouza.design/sdw </a>
+                </p>
+                <p>
+                    <a href=''> #nlw </a> {' '}
+                    <a href=''> #ignite </a> {' '}
+                    <a href=''> #reactjs </a> {' '}
+                </p>
+            </div>
+
         </article>
     )
 }
