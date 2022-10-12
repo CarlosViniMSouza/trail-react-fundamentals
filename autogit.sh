@@ -1,4 +1,4 @@
 git add .
-git commit -m "*.module.css moved to styles folder"
+git commit -m "Next Lesson: Propriedades do Post"
 git push -u origin main
 git status
