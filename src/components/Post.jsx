@@ -1,6 +1,6 @@
 import { Avatar } from './Avatar'
 import { Comment } from './Comment'
-import styles from './Post.module.css'
+import styles from './styles/Post.module.css'
 
 export function Post() {
     return (
