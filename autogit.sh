@@ -1,4 +1,4 @@
 git add .
-git commit -m "Next Lesson: Propriedades do Post"
+git commit -m "Next Lesson: Estado (useState)"
 git push -u origin main
 git status

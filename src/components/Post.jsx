@@ -1,39 +1,45 @@
 import { Avatar } from './Avatar'
 import { Comment } from './Comment'
+
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-br';
+
 import styles from './styles/Post.module.css'
 
-export function Post(props) {
-    console.log(props);
+export function Post({ author, publishedAt, content }) {
+    const pubDataFormat = format(publishedAt, "d LLLL 'as' HH:mm'h'", { locale: ptBR });
+
+    const pubDateRelativeToNow = formatDistanceToNow(publishedAt, {
+        locale: ptBR,
+        addSuffix: true,
+    });
 
     return (
         <article className={styles.post}>
             <header>
                 <div className={styles.author}>
-                    <Avatar src="https://github.com/diego3g.png" />
+                    <Avatar src={author.avatarURL} />
                     <div className={styles.authorInfo}>
-                        <strong> Diego Gonçalves </strong>
-                        <span> React.js Developer Expert </span>
+                        <strong> {author.name} </strong>
+                        <span> {author.role} </span>
                     </div>
                 </div>
 
                 <time
-                    title='03 October at 10:15h'
-                    dateTime='2022-10-03 10:15:20'>
-                    Posted 1h ago
+                    title={pubDataFormat}
+                    dateTime={publishedAt.toISOString()}>
+                    {pubDateRelativeToNow}
                 </time>
             </header>
 
             <div className={styles.content}>
-                <p> Salve turma! ✌️ </p>
-                <p> 👊 Projeto finalizado com sucesso! </p>
-                <p>
-                    <a href=''> diego3g.design/sdw </a>
-                </p>
-                <p>
-                    <a href=''> #nlw </a> {' '}
-                    <a href=''> #ignite </a> {' '}
-                    <a href=''> #reactjs </a> {' '}
-                </p>
+                {content.map(line => {
+                    if (line.type === 'paragraph') {
+                        return <p>{line.content}</p>
+                    } else if (line.type === 'link') {
+                        return <p><a href="#">{line.content}</a></p>
+                    }
+                })}
             </div>
 
             <form className={styles.commentForm}>

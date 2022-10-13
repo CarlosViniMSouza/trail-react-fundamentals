@@ -9,17 +9,17 @@ const posts = [
   {
     id: 1,
     author: {
-      avatarURL: "https://github.com/CarlosViniMSouza.png",
-      name: "Carlos",
+      avatarURL: "https://github.com/maykbrito.png",
+      name: "Mayk Brito",
       role: "Freelance Software Developer"
     },
     content: [
       {
-        type: 'paraghaph',
+        type: 'paragraph',
         content: 'Salve turma! ✌️',
       },
       {
-        type: 'paraghaph',
+        type: 'paragraph',
         content: '👊 Projeto finalizado com sucesso!',
       },
       {
@@ -32,17 +32,17 @@ const posts = [
   {
     id: 2,
     author: {
-      avatarURL: "https://github.com/ViniSouza.png",
-      name: "Vinicius",
+      avatarURL: "https://github.com/diego3g.png",
+      name: "Diego Fernandes",
       role: "Software Developer"
     },
     content: [
       {
-        type: 'paraghaph',
+        type: 'paragraph',
         content: 'Salve turma! ✌️',
       },
       {
-        type: 'paraghaph',
+        type: 'paragraph',
         content: '👊 Projeto finalizado com sucesso!',
       },
       {
