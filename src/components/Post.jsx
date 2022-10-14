@@ -1,18 +1,29 @@
-import { Avatar } from './Avatar'
-import { Comment } from './Comment'
+import { Avatar } from './Avatar';
+import { Comment } from './Comment';
 
-import { format, formatDistanceToNow } from 'date-fns';
+import styles from './styles/Post.module.css';
 import ptBR from 'date-fns/locale/pt-br';
 
-import styles from './styles/Post.module.css'
+import { useState } from 'react';
+import { format, formatDistanceToNow } from 'date-fns';
 
 export function Post({ author, publishedAt, content }) {
+    const [comments, setComments] = useState([
+        1, 2
+    ]);
+
     const pubDataFormat = format(publishedAt, "d LLLL 'as' HH:mm'h'", { locale: ptBR });
 
     const pubDateRelativeToNow = formatDistanceToNow(publishedAt, {
         locale: ptBR,
         addSuffix: true,
     });
+
+    function handleCreateNewComment() {
+        event.preventDefault();
+
+        setComments([...comments, comments.length + 1]);
+    }
 
     return (
         <article className={styles.post}>
@@ -42,7 +53,7 @@ export function Post({ author, publishedAt, content }) {
                 })}
             </div>
 
-            <form className={styles.commentForm}>
+            <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
                 <strong>Leave your Feedback</strong>
                 <textarea
                     placeholder='Leave an comment'
@@ -53,9 +64,9 @@ export function Post({ author, publishedAt, content }) {
             </form>
 
             <div className={styles.commentList}>
-                <Comment />
-                <Comment />
-                <Comment />
+                {comments.map(comment => {
+                    return <Comment />
+                })}
             </div>
         </article>
     )

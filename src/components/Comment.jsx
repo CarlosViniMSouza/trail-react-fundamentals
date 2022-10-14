@@ -16,7 +16,7 @@ export function Comment() {
                             <time
                                 title='03 October at 10:15h'
                                 dateTime='2022-10-11 09:15:20'>
-                                It's been about 2h
+                                Há cerca de 2h
                             </time>
                         </div>
                         <button title="Delete Comment">
