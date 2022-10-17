@@ -9,20 +9,33 @@ import { format, formatDistanceToNow } from 'date-fns';
 
 export function Post({ author, publishedAt, content }) {
     const [comments, setComments] = useState([
-        1, 2
+        'Post da hora!',
     ]);
 
-    const pubDataFormat = format(publishedAt, "d LLLL 'as' HH:mm'h'", { locale: ptBR });
+    const [newCommentText, setNewCommentText] = useState('');
 
-    const pubDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    const pubDataFormat = format(
+        publishedAt,
+        "d LLLL 'as' HH:mm'h'",
+        { locale: ptBR }
+    );
+
+    const pubDateRelativeToNow = formatDistanceToNow(
+        publishedAt, {
         locale: ptBR,
         addSuffix: true,
-    });
+    }
+    );
 
     function handleCreateNewComment() {
         event.preventDefault();
 
-        setComments([...comments, comments.length + 1]);
+        setComments([...comments, newCommentText]);
+        setNewCommentText('');
+    }
+
+    function handleNewCommentChange() {
+        setNewCommentText(event.target.value);
     }
 
     return (
@@ -55,9 +68,14 @@ export function Post({ author, publishedAt, content }) {
 
             <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
                 <strong>Leave your Feedback</strong>
+
                 <textarea
+                    name="comment"
                     placeholder='Leave an comment'
+                    value={newCommentText}
+                    onChange={handleNewCommentChange}
                 />
+
                 <footer>
                     <button type='submit'> Publish </button>
                 </footer>
@@ -65,7 +83,7 @@ export function Post({ author, publishedAt, content }) {
 
             <div className={styles.commentList}>
                 {comments.map(comment => {
-                    return <Comment />
+                    return <Comment content={comment} />
                 })}
             </div>
         </article>
