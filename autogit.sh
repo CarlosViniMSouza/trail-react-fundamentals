@@ -1,4 +1,4 @@
 git add .
-git commit -m "Next Lesson: Entendendo a key"
+git commit -m "Next Lesson: Comunicação entre componentes"
 git push
 git status
