@@ -1,4 +1,4 @@
 git add .
-git commit -m "Next Lesson: Fundamentos do TypeScript"
+git commit -m "Next Lesson: TypeScript no React"
 git push
 git status
